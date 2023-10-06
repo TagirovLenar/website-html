@@ -1,0 +1,158 @@
+.burger {
+  position: relative;
+  width: 36px;
+  height: 28px;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.burger__line {
+  position: absolute;
+  left: 0;
+  top: calc(50% - var(--burger-line) / 2);
+  width: 100%;
+  height: var(--burger-line);
+  background-color: var(--white);
+  -webkit-transform: scaleX(calc(28 / 36));
+  -ms-transform: scaleX(calc(28 / 36));
+  transform: scaleX(calc(28 / 36));
+  -webkit-transform-origin: left;
+  -ms-transform-origin: left;
+  transform-origin: left;
+  -webkit-transition: background-color var(--short), opacity var(--short);
+  -o-transition: background-color var(--short), opacity var(--short);
+  transition: background-color var(--short), opacity var(--short);
+}
+
+.burger::after,
+.burger::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--burger-line);
+  background-color: var(--white);
+  -webkit-transform-origin: left;
+  -ms-transform-origin: left;
+  transform-origin: left;
+  -webkit-transition: background-color var(--short);
+  -o-transition: background-color var(--short);
+  transition: background-color var(--short);
+}
+
+.burger::before {
+  top: 0;
+}
+
+.burger::after {
+  bottom: 1px;
+  -webkit-transform: scaleX(calc(24 / 36));
+  -ms-transform: scaleX(calc(24 / 36));
+  transform: scaleX(calc(24 / 36));
+}
+
+.burger:hover .burger__line,
+.burger:hover::after,
+.burger:hover::before {
+  background-color: var(--violet-light);
+}
+
+.burger:focus {
+  outline: none;
+}
+
+.burger:focus .burger__line,
+.burger:focus::after,
+.burger:focus::before {
+  background-color: var(--violet-middle);
+}
+
+.burger.is-opened .burger__line,
+.burger.is-closed .burger__line {
+  opacity: 0;
+}
+
+.is-opened.burger::after,
+.is-opened.burger::before,
+.is-closed.burger::after,
+.is-closed.burger::before {
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
+.is-opened.burger::before {
+  top: calc(50% - var(--burger-line) / 2);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-animation: burger-before-open;
+  animation: burger-before-open;
+  -webkit-animation-duration: var(--middle);
+  animation-duration: var(--middle);
+}
+
+.is-opened.burger::after {
+  bottom: calc(50% - var(--burger-line) / 2);
+  -webkit-transform: scaleX(1) rotate(-45deg);
+  -ms-transform: scaleX(1) rotate(-45deg);
+  transform: scaleX(1) rotate(-45deg);
+  -webkit-animation: burger-after-open;
+  animation: burger-after-open;
+  -webkit-animation-duration: var(--middle);
+  animation-duration: var(--middle);
+}
+
+.is-closed.burger::before {
+  top: calc(50% - var(--burger-line) / 2);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-animation: burger-before-close;
+  animation: burger-before-close;
+  -webkit-animation-duration: var(--middle);
+  animation-duration: var(--middle);
+}
+
+.is-closed.burger::after {
+  bottom: calc(50% - var(--burger-line) / 2);
+  -webkit-transform: scaleX(1) rotate(-45deg);
+  -ms-transform: scaleX(1) rotate(-45deg);
+  transform: scaleX(1) rotate(-45deg);
+  -webkit-animation: burger-after-close;
+  animation: burger-after-close;
+  -webkit-animation-duration: var(--middle);
+  animation-duration: var(--middle);
+}
+
+
+@media (max-width: 610px) {
+  :root {
+    --burger-line: 2px;
+  }
+
+  .header__burger {
+    width: 25px;
+    height: 18px;
+  }
+
+  .header__burger.is-opened {
+    width: 19px;
+  }
+
+  .burger__line {
+    -webkit-transform: scaleX(calc(16 / 25));
+    -ms-transform: scaleX(calc(16 / 25));
+    transform: scaleX(calc(16 / 25));
+  }
+
+  .burger::after {
+    -webkit-transform: scaleX(calc(10 / 25));
+    -ms-transform: scaleX(calc(10 / 25));
+    transform: scaleX(calc(10 / 25));
+  }
+
+
+}

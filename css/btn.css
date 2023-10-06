@@ -1,0 +1,141 @@
+.btn {
+    position: relative;
+    display: inline-block;
+    -webkit-transition: -webkit-box-shadow var(--short);
+    transition: -webkit-box-shadow var(--short);
+    -o-transition: box-shadow var(--short);
+    transition: box-shadow var(--short);
+    transition: box-shadow var(--short), -webkit-box-shadow var(--short);
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    border: 2px solid var(--violet-btn-focus);
+    border-radius: inherit;
+    opacity: 0;
+    -webkit-transition: opasity var(--short);
+    -o-transition: opasity var(--short);
+    transition: opasity var(--short);
+}
+
+.btn:focus:not(:active):not(:hover):after {
+    opacity: 1;
+    outline: inherit;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:hover {
+    -webkit-box-shadow: 0 0 0 3px var(--violet-light) inset;
+    box-shadow: 0 0 0 3px var(--violet-light) inset;
+    outline: 0;
+}
+
+.btn:active {
+    -webkit-box-shadow: 0 0 0 3px var(--violet-light) inset;
+    box-shadow: 0 0 0 3px var(--violet-light) inset;
+    background-color: var(--violet-dark);
+}
+
+
+
+
+.btn-nav {
+    position: relative;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #666666;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-transition: border-color var(--short), background-color var(--short);
+    -o-transition: border-color var(--short), background-color var(--short);
+    transition: border-color var(--short), background-color var(--short);
+}
+
+.btn-nav::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 7px / 2);
+    width: 7px;
+    height: 7px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+}
+
+.btn-nav.swiper-button-disabled {
+    cursor: auto;
+    background-color: rgba(102, 102, 102, 0.5);
+}
+
+.btn-nav--next::before {
+    left: calc(50% - 7px / 2);
+    border-top: 1px solid var(--white);
+    border-right: 1px solid var(--white);
+}
+
+.btn-nav--prev::before {
+    left: calc(50% - 7px / 2);
+    border-left: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
+}
+
+.btn-nav--light {
+    background-color: var(--ultra-light-gray);
+}
+
+.btn-nav--light::before {
+    border-color: var(--black);
+}
+
+.btn-nav--light.swiper-button-disabled {
+    background-color: var(--ultra-light-gray);
+}
+
+.swiper-button-disabled.btn-nav--light::before {
+    border-color: var(--light-gray);
+}
+
+.btn-nav--light:hover:not(.swiper-button-disabled) {
+    background-color: var(--violet-ultra-light);
+}
+
+.btn-nav--light:focus:not(.swiper-button-disabled) {
+    -webkit-box-shadow: inset 0 0 0 2px var(--violet-middle);
+    box-shadow: inset 0 0 0 2px var(--violet-middle);
+    outline: none;
+}
+
+.btn-nav--light:active:not(.swiper-button-disabled) {
+    background-color: var(--violet-ultra-light);
+    -webkit-box-shadow: inset 0 0 0 2px var(--violet-middle);
+    box-shadow: inset 0 0 0 2px var(--violet-middle);
+
+}
+
+.btn-nav:focus:not(.swiper-button-disabled){
+    border-color: solid 2px var(--black);
+    outline: none;
+}
+
+.btn-nav:hover:not(.swiper-button-disabled){
+    background-color: var(--violet-btn-hover);
+}
+
+.btn-nav:active:not(.swiper-button-disabled) {
+    background-color: var(--violet-btn-active);
+    border-color: solid 2px var(--black);
+}
